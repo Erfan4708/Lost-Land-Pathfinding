@@ -1,0 +1,1 @@
+# informed.py: Store informed search algorithms
