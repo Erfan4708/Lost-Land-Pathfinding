@@ -13,3 +13,5 @@ class Map:
         else:
             raise IndexError("Coordinates out of bounds")
     
+    def is_valid_move(self, x: int, y: int) -> bool:
+        return 0 <= x < self.n and 0 <= y < self.n
