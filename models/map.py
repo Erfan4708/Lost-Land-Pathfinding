@@ -3,11 +3,11 @@
 from typing import List, Dict, Any
 
 class Map:
-    '''
+    """
     A class representing a map of the world.
     It contains methods to get the value of a cell and check if a move is valid.
-    '''
-    def __init__(self, grid: List[List[int]]):
+    """
+    def __init__(self, grid: List[List[Any]]):
         self.grid = grid
         self.n = len(grid)
     
