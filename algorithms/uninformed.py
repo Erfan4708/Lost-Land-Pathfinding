@@ -19,7 +19,7 @@ class DFSPathFinder:
             self._dfs(start_node)
             return self.result if self.result else {"path": [], "coins": 0, "stolen": 0}
 
-        def _dfs(self, node) -> Dict:
+        def _dfs(self, node) -> bool:
             if (node.x, node.y) == (self.n - 1, self.n - 1):
                 self.result = {
                     "path": node.path,
