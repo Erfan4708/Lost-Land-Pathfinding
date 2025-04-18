@@ -5,6 +5,7 @@ from models.map import Map
 from typing import Dict
 from algorithms.PathFinder import PathFinder
 
+
 class DFSPathFinder(PathFinder):
     def __init__(self, map_obj: Map):
         super().__init__(map_obj)
@@ -33,7 +34,7 @@ class DFSPathFinder(PathFinder):
                 "coins": node.coins,
                 "stolen": 0  # No matter if the thief is stolen or not
             }
-            return True # Finding the goal
+            return True  # Finding the goal
 
         self.visited.add((node.x, node.y))
 
@@ -55,7 +56,7 @@ class DFSPathFinder(PathFinder):
 
                 if next_node.has_thief:
                     if next_cell == "!":
-                        next_node.has_thief = False # two thieves cancel each other
+                        next_node.has_thief = False  # two thieves cancel each other
                     elif isinstance(next_cell, int):
                         if next_cell > 0:
                             pass
