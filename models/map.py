@@ -7,7 +7,7 @@ class Map:
     A class representing a map of the world.
     It contains methods to get the value of a cell and check if a move is valid.
     """
-    def __init__(self, grid: List[List[Any]]):
+    def __init__(self, grid: list[list[Any]]):
         self.grid = grid
         self.n = len(grid)
     
