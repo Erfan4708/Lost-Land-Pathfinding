@@ -1,17 +1,20 @@
 # uninformed.py: Store uninformed search algorithms
+
 from models.node import Node
 from models.map import Map
 from typing import Dict
+from algorithms.PathFinder import PathFinder
 
-class DFSPathFinder:
+class DFSPathFinder(PathFinder):
     def __init__(self, map_obj: Map):
+        super().__init__(map_obj)
         self.__algorithm_name = "DFS"
         self.map = map_obj
         self.n = map_obj.n
         self.visited = set()
         self.result = None
 
-    def get_name(self) -> str:
+    def algorithm_name(self) -> str:
         return self.__algorithm_name
 
     def solve(self) -> Dict:
