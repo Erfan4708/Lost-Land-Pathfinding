@@ -21,3 +21,10 @@ class Node:
             "has_thief": self.has_thief
         }
     
+    def from_dict(self, data: Dict[str, Any]) -> None:
+        self.x = data.get("x", 0)
+        self.y = data.get("y", 0)
+        self.path = data.get("path", [(self.x, self.y)])
+        self.coins = data.get("coins", 0)
+        self.has_thief = data.get("has_thief", False)
+        
