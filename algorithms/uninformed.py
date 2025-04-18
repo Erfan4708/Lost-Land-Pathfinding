@@ -5,10 +5,14 @@ from typing import Dict
 
 class DFSPathFinder:
     def __init__(self, map_obj: Map):
+        self.__algorithm_name = "DFS"
         self.map = map_obj
         self.n = map_obj.n
         self.visited = set()
         self.result = None
+
+    def get_name(self) -> str:
+        return self.__algorithm_name
 
     def solve(self) -> Dict:
         start_val = self.map.get_cell(0, 0)
