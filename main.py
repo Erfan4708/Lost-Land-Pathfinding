@@ -1,6 +1,5 @@
-# main.py: Main script to run the app
-
 from models.map import Map
+from algorithms.PathFinder import PathFinder
 from algorithms.uninformed import DFSPathFinder
 
 if __name__ == "__main__":
@@ -12,13 +11,19 @@ if __name__ == "__main__":
     ]
 
     map_obj = Map(test_map)
-    dfs_solver = DFSPathFinder(map_obj)
-    result = dfs_solver.solve()
 
-    if result:
-        print(f"Path found by {dfs_solver.get_name()}:")
-        print("Path:", result["path"])
-        print("Coins:", result["coins"])
-        print("Stolen:", result["stolen"])
-    else:
-        print("No path found.")
+    algorithms: list[tuple[str, type[PathFinder]]] = [
+        ("DFS", DFSPathFinder),
+    ]
+
+    for name, AlgoClass in algorithms:
+        solver: PathFinder = AlgoClass(map_obj)
+        result = solver.solve()
+
+        if result:
+            print("Path found using", name)
+            print("path:", result["path"])
+            print("coins:", result["coins"])
+            print("stolen", result["stolen"])
+        else:
+            print("No path found using", name)
