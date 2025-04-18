@@ -8,3 +8,6 @@ class Node:
         self.path = path if path else [(x, y)]
         self.coins = coins
         self.has_thief = has_thief
+
+    def __repr__(self) -> str:
+        return f"Node(x={self.x}, y={self.y}, path={self.path}, coins={self.coins}, has_thief={self.has_thief})"
