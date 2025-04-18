@@ -9,6 +9,15 @@ class Node:
         self.coins = coins
         self.has_thief = has_thief
 
+    def copy(self) -> 'Node':
+        return Node(
+            self.x,
+            self.y, 
+            self.path.copy(), 
+            self.coins, 
+            self.has_thief
+            )
+
     def __repr__(self) -> str:
         return f"Node(x={self.x}, y={self.y}, path={self.path}, coins={self.coins}, has_thief={self.has_thief})"
     
@@ -27,4 +36,3 @@ class Node:
         self.path = data.get("path", [(self.x, self.y)])
         self.coins = data.get("coins", 0)
         self.has_thief = data.get("has_thief", False)
-        
