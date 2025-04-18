@@ -11,3 +11,13 @@ class Node:
 
     def __repr__(self) -> str:
         return f"Node(x={self.x}, y={self.y}, path={self.path}, coins={self.coins}, has_thief={self.has_thief})"
+    
+    def to_dict(self) -> Dict[str, Any]:
+        return {
+            "x": self.x,
+            "y": self.y,
+            "path": self.path,
+            "coins": self.coins,
+            "has_thief": self.has_thief
+        }
+    
