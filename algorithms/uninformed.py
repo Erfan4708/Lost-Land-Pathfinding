@@ -11,6 +11,15 @@ class DFSPathFinder:
         self.stack = []
         self.result = None
 
+        def solve(self) -> Dict:
+            start_val = self.map.get_cell(0, 0)
+            start_coins = start_val if isinstance(start_val, int) else 0
+            start_thief = start_val == "!"
+            start_node = Node(0, 0, [(0, 0)], start_coins, start_thief)
+
+            self._dfs(start_node)
+            return self.result if self.result else {"path": [], "coins": 0, "stolen": 0}
+
         def _dfs(self, node) -> Dict:
             if (node.x, node.y) == (self.n - 1, self.n - 1):
                 self.result = {
@@ -34,3 +43,26 @@ class DFSPathFinder:
 
                     curr_cell = self.map.get_cell(node.x, node.y)
                     next_cell = self.map.get_cell(new_x, new_y)
+
+                    if curr_cell == "!":
+                        next_node.has_thief = True
+
+                    if next_node.has_thief:
+                        if next_cell == "!":
+                            next_node.has_thief = False # two thieves cancel each other
+                        elif isinstance(next_cell, int):
+                            if next_cell > 0:
+                                pass
+                            else:
+                                next_node.coins += next_cell 
+                                next_node.coins -= abs(next_cell)
+                            next_node.has_thief = False
+                    else:
+                        if isinstance(next_cell, int):
+                            next_node.coins += next_cell
+
+                    if self._dfs(next_node):
+                        return True
+                    
+            self.visited.remove((node.x, node.y))
+            return False
