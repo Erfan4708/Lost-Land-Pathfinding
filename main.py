@@ -2,12 +2,14 @@ from models.map import Map
 from algorithms.PathFinder import PathFinder
 from algorithms.uninformed import DFSPathFinder
 
+from config import THIEF
+
 if __name__ == "__main__":
     test_map = [
-        [-3, -2, -2, "!"],
+        [-3, -2, -2, THIEF],
         [ 3, -2,  3, -2],
-        [10, -8, "!", 1],
-        [-4, -3, -6, "!"]
+        [10, -8, THIEF, 1],
+        [-4, -3, -6, THIEF]
     ]
 
     map_obj = Map(test_map)
