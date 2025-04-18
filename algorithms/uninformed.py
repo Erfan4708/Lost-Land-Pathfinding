@@ -34,7 +34,7 @@ class DFSPathFinder:
             new_x = node.x + dx
             new_y = node.y + dy
 
-            if self.map.is_valid(new_x, new_y) and (new_x, new_y) not in self.visited:
+            if self.map.is_valid_move(new_x, new_y) and (new_x, new_y) not in self.visited:
                 next_node = node.copy()
                 next_node.x = new_x
                 next_node.y = new_y
