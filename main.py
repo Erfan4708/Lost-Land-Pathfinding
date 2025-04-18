@@ -16,7 +16,7 @@ if __name__ == "__main__":
     result = dfs_solver.solve()
 
     if result:
-        print("Path found:")
+        print(f"Path found by {dfs_solver.get_name()}:")
         print("Path:", result["path"])
         print("Coins:", result["coins"])
         print("Stolen:", result["stolen"])
