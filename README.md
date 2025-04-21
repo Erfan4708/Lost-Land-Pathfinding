@@ -20,18 +20,10 @@ The program solves three tasks:
 
 ### Code is Object-Oriented
 
-- The code uses **classes**.
 - All search algorithms inherit from a base class called `PathFinder`.
 - The map is handled in a class called `Map`.
 - There is a `Node` class to keep track of each step in the path.
 - File reading/writing is done with helper classes in the `utils` folder.
-
----
-
-### Input and Output
-
-- The program **reads maps** from a file: `examples/input.txt`
-Awesome! Here's an updated version of the `README.md` section with **example input and output format** so it's super easy for anyone to understand:
 
 ---
 
