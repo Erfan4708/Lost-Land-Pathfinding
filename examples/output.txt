@@ -1,44 +1,220 @@
 Example1
-2025-04-21 22:27:17
+2025-04-21 23:21:30
 
 Path found using DFS
 path: [(0, 0), (1, 0), (2, 0), (3, 0), (3, 1), (3, 2), (3, 3)]
-coins: -30
+coins: -3
 stolen 0
-Execution time: 0.000083 sec, Memory peak: 0.008453 MB
+Execution time: 0.000072 sec, Memory peak: 0.008247 MB
 ----------------------------------------
 Path found using A* Max Profit
-path: [(0, 0), (0, 1), (1, 1), (2, 1), (3, 1), (3, 2), (3, 3)]
-coins: -6
-stolen 7
-Execution time: 0.000396 sec, Memory peak: 0.009274 MB
+path: [(0, 0), (1, 0), (2, 0), (2, 1), (2, 2), (2, 3), (3, 3)]
+coins: 2
+stolen 1
+Execution time: 0.000257 sec, Memory peak: 0.008434 MB
 ----------------------------------------
 Path found using A* Min Loss
-path: [(0, 0), (1, 0), (1, 1), (2, 1), (3, 1), (3, 2), (3, 3)]
-coins: -9
-stolen 5
-Execution time: 0.000198 sec, Memory peak: 0.005951 MB
+path: [(0, 0), (1, 0), (2, 0), (3, 0), (3, 1), (3, 2), (3, 3)]
+coins: -3
+stolen 0
+Execution time: 0.000123 sec, Memory peak: 0.005581 MB
 ----------------------------------------
 
 Example2
-2025-04-21 22:27:17
+2025-04-21 23:21:30
 
 Path found using DFS
 path: [(0, 0), (1, 0), (2, 0), (3, 0), (3, 1), (3, 2), (3, 3)]
 coins: -30
 stolen 0
-Execution time: 0.000059 sec, Memory peak: 0.004951 MB
+Execution time: 0.000051 sec, Memory peak: 0.004951 MB
 ----------------------------------------
 Path found using A* Max Profit
 path: [(0, 0), (0, 1), (1, 1), (2, 1), (3, 1), (3, 2), (3, 3)]
 coins: -6
 stolen 7
-Execution time: 0.000344 sec, Memory peak: 0.004658 MB
+Execution time: 0.000241 sec, Memory peak: 0.004551 MB
 ----------------------------------------
 Path found using A* Min Loss
 path: [(0, 0), (1, 0), (1, 1), (2, 1), (3, 1), (3, 2), (3, 3)]
 coins: -9
 stolen 5
-Execution time: 0.000140 sec, Memory peak: 0.004547 MB
+Execution time: 0.000128 sec, Memory peak: 0.004601 MB
+----------------------------------------
+
+Example3
+2025-04-21 23:21:30
+
+Path found using DFS
+path: [(0, 0), (1, 0), (2, 0), (3, 0), (4, 0), (4, 1), (4, 2), (4, 3), (4, 4)]
+coins: 28
+stolen 0
+Execution time: 0.000054 sec, Memory peak: 0.003532 MB
+----------------------------------------
+Path found using A* Max Profit
+path: [(0, 0), (1, 0), (2, 0), (3, 0), (4, 0), (4, 1), (4, 2), (4, 3), (4, 4)]
+coins: 28
+stolen 2
+Execution time: 0.000278 sec, Memory peak: 0.005241 MB
+----------------------------------------
+Path found using A* Min Loss
+path: [(0, 0), (1, 0), (2, 0), (3, 0), (3, 1), (3, 2), (3, 3), (4, 3), (4, 4)]
+coins: 11
+stolen 0
+Execution time: 0.000183 sec, Memory peak: 0.008259 MB
+----------------------------------------
+
+Example4
+2025-04-21 23:21:30
+
+Path found using DFS
+path: [(0, 0), (1, 0), (2, 0), (3, 0), (3, 1), (3, 2), (3, 3)]
+coins: -5
+stolen 0
+Execution time: 0.000043 sec, Memory peak: 0.002113 MB
+----------------------------------------
+Path found using A* Max Profit
+path: [(0, 0), (0, 1), (0, 2), (0, 3), (1, 3), (2, 3), (3, 3)]
+coins: 8
+stolen 2
+Execution time: 0.000231 sec, Memory peak: 0.004467 MB
+----------------------------------------
+Path found using A* Min Loss
+path: [(0, 0), (0, 1), (1, 1), (1, 2), (2, 2), (3, 2), (3, 3)]
+coins: 0
+stolen 2
+Execution time: 0.000103 sec, Memory peak: 0.003925 MB
+----------------------------------------
+
+Example5
+2025-04-21 23:21:30
+
+Path found using DFS
+path: [(0, 0), (1, 0), (2, 0), (3, 0), (3, 1), (3, 2), (3, 3)]
+coins: 9
+stolen 0
+Execution time: 0.000042 sec, Memory peak: 0.002060 MB
+----------------------------------------
+Path found using A* Max Profit
+path: [(0, 0), (0, 1), (0, 2), (0, 3), (1, 3), (2, 3), (3, 3)]
+coins: 18
+stolen 0
+Execution time: 0.000187 sec, Memory peak: 0.004143 MB
+----------------------------------------
+Path found using A* Min Loss
+path: [(0, 0), (1, 0), (2, 0), (2, 1), (3, 1), (3, 2), (3, 3)]
+coins: 5
+stolen 0
+Execution time: 0.000118 sec, Memory peak: 0.004242 MB
+----------------------------------------
+
+Example6
+2025-04-21 23:21:30
+
+Path found using DFS
+path: [(0, 0), (1, 0), (2, 0), (3, 0), (3, 1), (3, 2), (3, 3)]
+coins: 0
+stolen 0
+Execution time: 0.000045 sec, Memory peak: 0.002113 MB
+----------------------------------------
+Path found using A* Max Profit
+path: [(0, 0), (0, 1), (0, 2), (1, 2), (2, 2), (3, 2), (3, 3)]
+coins: 13
+stolen 3
+Execution time: 0.000200 sec, Memory peak: 0.004695 MB
+----------------------------------------
+Path found using A* Min Loss
+path: [(0, 0), (1, 0), (2, 0), (3, 0), (3, 1), (3, 2), (3, 3)]
+coins: 1
+stolen 1
+Execution time: 0.000095 sec, Memory peak: 0.003841 MB
+----------------------------------------
+
+Example7
+2025-04-21 23:21:30
+
+Path found using DFS
+path: [(0, 0), (1, 0), (2, 0), (3, 0), (3, 1), (3, 2), (3, 3)]
+coins: 4
+stolen 0
+Execution time: 0.000041 sec, Memory peak: 0.002060 MB
+----------------------------------------
+Path found using A* Max Profit
+path: [(0, 0), (1, 0), (2, 0), (2, 1), (2, 2), (2, 3), (3, 3)]
+coins: 16
+stolen 0
+Execution time: 0.000205 sec, Memory peak: 0.004303 MB
+----------------------------------------
+Path found using A* Min Loss
+path: [(0, 0), (1, 0), (2, 0), (2, 1), (3, 1), (3, 2), (3, 3)]
+coins: 8
+stolen 0
+Execution time: 0.000118 sec, Memory peak: 0.004211 MB
+----------------------------------------
+
+Example8
+2025-04-21 23:21:30
+
+Path found using DFS
+path: [(0, 0), (1, 0), (2, 0), (3, 0), (3, 1), (3, 2), (3, 3)]
+coins: 0
+stolen 0
+Execution time: 0.000042 sec, Memory peak: 0.002060 MB
+----------------------------------------
+Path found using A* Max Profit
+path: [(0, 0), (1, 0), (2, 0), (3, 0), (3, 1), (3, 2), (3, 3)]
+coins: 0
+stolen 0
+Execution time: 0.000229 sec, Memory peak: 0.003998 MB
+----------------------------------------
+Path found using A* Min Loss
+path: [(0, 0), (1, 0), (2, 0), (3, 0), (3, 1), (3, 2), (3, 3)]
+coins: 0
+stolen 0
+Execution time: 0.000110 sec, Memory peak: 0.003998 MB
+----------------------------------------
+
+Example9
+2025-04-21 23:21:30
+
+Path found using DFS
+path: [(0, 0), (1, 0), (2, 0), (3, 0), (3, 1), (3, 2), (3, 3)]
+coins: 20
+stolen 0
+Execution time: 0.000042 sec, Memory peak: 0.002060 MB
+----------------------------------------
+Path found using A* Max Profit
+path: [(0, 0), (1, 0), (2, 0), (3, 0), (3, 1), (3, 2), (3, 3)]
+coins: 20
+stolen 10
+Execution time: 0.000461 sec, Memory peak: 0.004025 MB
+----------------------------------------
+Path found using A* Min Loss
+path: [(0, 0), (1, 0), (2, 0), (3, 0), (3, 1), (3, 2), (3, 3)]
+coins: 20
+stolen 10
+Execution time: 0.000117 sec, Memory peak: 0.004028 MB
+----------------------------------------
+
+Example10
+2025-04-21 23:21:30
+
+Path found using DFS
+path: [(0, 0), (1, 0), (2, 0), (3, 0), (3, 1), (3, 2), (3, 3)]
+coins: -13
+stolen 0
+Execution time: 0.000045 sec, Memory peak: 0.002132 MB
+----------------------------------------
+Path found using A* Max Profit
+path: [(0, 0), (1, 0), (2, 0), (3, 0), (3, 1), (3, 2), (3, 3)]
+coins: -13
+stolen 0
+Execution time: 0.000218 sec, Memory peak: 0.004650 MB
+----------------------------------------
+Path found using A* Min Loss
+path: [(0, 0), (1, 0), (2, 0), (3, 0), (3, 1), (3, 2), (3, 3)]
+coins: -13
+stolen 0
+Execution time: 0.000121 sec, Memory peak: 0.004204 MB
 ----------------------------------------
 
