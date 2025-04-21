@@ -3,7 +3,7 @@
 from models.node import Node
 from models.map import Map
 from typing import Dict
-from config import THIEF
+from config import THIEF, DIRECTION
 from algorithms.PathFinder import PathFinder
 
 
@@ -39,7 +39,7 @@ class DFSPathFinder(PathFinder):
 
         self.visited.add((node.x, node.y))
 
-        for dx, dy in [(1, 0), (0, 1)]:
+        for dx, dy in DIRECTION:
             new_x = node.x + dx
             new_y = node.y + dy
 
