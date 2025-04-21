@@ -1,22 +1,24 @@
 # node model: represents a node in the graph
-from typing import List, Dict, Any
+from typing import List, Tuple, Dict, Any
 
 class Node:
-    def __init__(self, x: int, y: int, path: list[(int, int)], coins: int, has_thief: bool):
+    def __init__(self, x: int, y: int, path: List[Tuple[int, int]], coins: int, has_thief: bool, stolen: int = 0):
         self.x = x
         self.y = y
         self.path = path if path else [(x, y)]
         self.coins = coins
         self.has_thief = has_thief
+        self.stolen = stolen
 
     def copy(self) -> 'Node':
         return Node(
             self.x,
-            self.y, 
-            self.path.copy(), 
-            self.coins, 
-            self.has_thief
-            )
+            self.y,
+            self.path.copy(),
+            self.coins,
+            self.has_thief,
+            self.stolen
+        )
 
     def __repr__(self) -> str:
         return f"Node(x={self.x}, y={self.y}, path={self.path}, coins={self.coins}, has_thief={self.has_thief})"
