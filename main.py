@@ -1,31 +1,20 @@
-from models.map import Map
 from algorithms.PathFinder import PathFinder
 from algorithms.uninformed import DFSPathFinder
-
-from config import THIEF
+from algorithms.informed import (
+    AStarMaxProfitPathFinder,
+    AStarMinLossPathFinder
+)
+from utils.helpers import run_examples
 
 if __name__ == "__main__":
-    test_map = [
-        [-3, -2, -2, THIEF],
-        [ 3, -2,  3, -2],
-        [10, -8, THIEF, 1],
-        [-4, -3, -6, THIEF]
-    ]
-
-    map_obj = Map(test_map)
-
-    algorithms: list[tuple[str, type[PathFinder]]] = [
+    algorithms = [
         ("DFS", DFSPathFinder),
+        ("A* Max Profit", AStarMaxProfitPathFinder),
+        ("A* Min Loss", AStarMinLossPathFinder),
     ]
 
-    for name, AlgoClass in algorithms:
-        solver: PathFinder = AlgoClass(map_obj)
-        result = solver.solve()
-
-        if result:
-            print("Path found using", name)
-            print("path:", result["path"])
-            print("coins:", result["coins"])
-            print("stolen", result["stolen"])
-        else:
-            print("No path found using", name)
+    run_examples(
+        input_file="examples/input.txt",
+        output_file="examples/output.txt",
+        algorithms=algorithms
+    )
