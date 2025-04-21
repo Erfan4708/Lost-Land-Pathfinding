@@ -33,9 +33,9 @@ class DFSPathFinder(PathFinder):
             self.result = {
                 "path": node.path,
                 "coins": node.coins,
-                "stolen": 0  # No matter if the thief is stolen or not
+                "stolen": 0 
             }
-            return True  # Finding the goal
+            return True 
 
         self.visited.add((node.x, node.y))
 
@@ -57,7 +57,7 @@ class DFSPathFinder(PathFinder):
 
                 if next_node.has_thief:
                     if next_cell == THIEF:
-                        next_node.has_thief = False  # two thieves cancel each other
+                        next_node.has_thief = False
                     elif isinstance(next_cell, int):
                         if next_cell > 0:
                             pass
