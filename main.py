@@ -1,20 +1,19 @@
-from algorithms.PathFinder import PathFinder
-from algorithms.uninformed import DFSPathFinder
 from algorithms.informed import (
     AStarMaxProfitPathFinder,
     AStarMinLossPathFinder
 )
+from algorithms.uninformed import DFSPathFinder
 from utils.helpers import run_examples
 
-if __name__ == "__main__":
-    algorithms = [
-        ("DFS", DFSPathFinder),
-        ("A* Max Profit", AStarMaxProfitPathFinder),
-        ("A* Min Loss", AStarMinLossPathFinder),
-    ]
+ALGORITHMS = [
+    DFSPathFinder,
+    AStarMaxProfitPathFinder,
+    AStarMinLossPathFinder,
+]
 
+if __name__ == "__main__":
     run_examples(
         input_file="examples/input.txt",
         output_file="examples/output.txt",
-        algorithms=algorithms
+        algorithms=ALGORITHMS
     )

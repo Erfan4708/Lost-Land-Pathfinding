@@ -1,8 +1,24 @@
-# node model: represents a node in the graph
-from typing import List, Tuple, Dict, Any
+# node model: represents a node in the search tree
+
+from typing import List, Tuple
+
 
 class Node:
-    def __init__(self, x: int, y: int, path: List[Tuple[int, int]], coins: int, has_thief: bool, stolen: int = 0):
+    """
+    One state of the search: where Arian stands, how he got there, how many
+    coins he holds, how many were stolen from him and whether a thief is
+    currently following him.
+    """
+
+    def __init__(
+        self,
+        x: int,
+        y: int,
+        path: List[Tuple[int, int]],
+        coins: int,
+        has_thief: bool,
+        stolen: int = 0,
+    ):
         self.x = x
         self.y = y
         self.path = path if path else [(x, y)]
@@ -21,20 +37,8 @@ class Node:
         )
 
     def __repr__(self) -> str:
-        return f"Node(x={self.x}, y={self.y}, path={self.path}, coins={self.coins}, has_thief={self.has_thief})"
-    
-    def to_dict(self) -> Dict[str, Any]:
-        return {
-            "x": self.x,
-            "y": self.y,
-            "path": self.path,
-            "coins": self.coins,
-            "has_thief": self.has_thief
-        }
-    
-    def from_dict(self, data: Dict[str, Any]) -> None:
-        self.x = data.get("x", 0)
-        self.y = data.get("y", 0)
-        self.path = data.get("path", [(self.x, self.y)])
-        self.coins = data.get("coins", 0)
-        self.has_thief = data.get("has_thief", False)
+        return (
+            f"Node(x={self.x}, y={self.y}, path={self.path}, "
+            f"coins={self.coins}, stolen={self.stolen}, "
+            f"has_thief={self.has_thief})"
+        )

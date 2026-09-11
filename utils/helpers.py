@@ -1,61 +1,66 @@
 # helpers.py: Store helper functions for the project.
 
 import tracemalloc
-from time import perf_counter
 from datetime import datetime
-from typing import List, Tuple, Type
+from time import perf_counter
+from typing import List, Type
 
-from models.map import Map
 from algorithms.PathFinder import PathFinder
+from models.map import Map
 from utils.parser import MapParser
+
+SEPARATOR = "-" * 40
+
 
 def run_examples(
     input_file: str,
     output_file: str,
-    algorithms: List[Tuple[str, Type[PathFinder]]]
+    algorithms: List[Type[PathFinder]]
 ):
+    """
+    Run every algorithm on every map of the input file and write the results
+    both to the console and to the output file.
+    """
     examples = MapParser.parse_examples_from_file(input_file)
 
     with open(output_file, 'w', encoding='utf-8') as out_f:
+
+        def emit(text: str) -> None:
+            print(text, end='')
+            out_f.write(text)
+
         for example_name, grid in examples:
             date_str = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-            header = f"{example_name}\n{date_str}\n\n"
-            print(header, end='')
-            out_f.write(header)
+            emit(f"{example_name}\n{date_str}\n\n")
 
             map_obj = Map(grid)
 
-            for algo_name, AlgoClass in algorithms:
-                solver: PathFinder = AlgoClass(map_obj)
+            for algorithm in algorithms:
+                solver = algorithm(map_obj)
 
                 tracemalloc.start()
-                t0 = perf_counter()
+                start_time = perf_counter()
                 result = solver.solve()
-                t1 = perf_counter()
-                current, peak = tracemalloc.get_traced_memory()
+                elapsed = perf_counter() - start_time
+                _, peak = tracemalloc.get_traced_memory()
                 tracemalloc.stop()
 
-                elapsed = t1 - t0
                 peak_mb = peak / (1024 * 1024)
 
-                if result:
-                    block = (
-                        f"Path found using {algo_name}\n"
+                if result["path"]:
+                    emit(
+                        f"Path found using {solver.algorithm_name}\n"
                         f"path: {result['path']}\n"
                         f"coins: {result['coins']}\n"
-                        f"stolen {result['stolen']}\n"
+                        f"stolen: {result['stolen']}\n"
                         f"Execution time: {elapsed:.6f} sec, "
                         f"Memory peak: {peak_mb:.6f} MB\n"
-                        + "-"*40 + "\n"
+                        f"{SEPARATOR}\n"
                     )
                 else:
-                    block = (
-                        f"No path found using {algo_name}\n"
-                        + "-"*40 + "\n"
+                    emit(
+                        f"No path found using {solver.algorithm_name}\n"
+                        f"{SEPARATOR}\n"
                     )
 
-                print(block, end='')
-                out_f.write(block)
-
-            print()
-            out_f.write("\n")
+            emit("\n")
